@@ -1,0 +1,11 @@
+.base-line-diff {
+    @apply bg-yellow-100 !important;
+}
+
+.current-line-diff {
+    @apply bg-green-200 !important;
+}
+
+.expected-line-diff {
+    @apply bg-red-200 !important;
+}

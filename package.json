@@ -1,0 +1,145 @@
+{
+  "name": "apiflow",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@codemirror/commands": "^6.2.5",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/view": "^6.18.1",
+    "@headlessui/react": "^1.7.17",
+    "@hookform/resolvers": "^3.3.1",
+    "@monaco-editor/react": "^4.5.2",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@tanstack/react-table": "^8.10.7",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/jsonpath": "^0.2.4",
+    "@types/node": "^16.18.50",
+    "@types/react": "^18.2.21",
+    "@types/react-copy-to-clipboard": "^5.0.7",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-syntax-highlighter": "^15.5.10",
+    "@uiw/codemirror-extensions-basic-setup": "^4.21.21",
+    "@uiw/codemirror-extensions-classname": "^4.21.21",
+    "@uiw/react-codemirror": "^4.21.21",
+    "ace-builds": "^1.32.3",
+    "axios": "^1.5.0",
+    "codemirror": "^6.0.1",
+    "curlconverter": "^4.8.0",
+    "jsonpath": "^1.1.1",
+    "lodash": "^4.17.21",
+    "pako": "^2.1.0",
+    "react": "^18.2.0",
+    "react-ace": "^10.1.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
+    "react-hot-toast": "^2.4.1",
+    "react-loader-spinner": "^5.4.5",
+    "react-redux": "^8.1.2",
+    "react-responsive-modal": "^6.4.2",
+    "react-router": "^6.16.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-tabs": "^6.0.2",
+    "react-toastify": "^9.1.3",
+    "react-tooltip": "^5.25.0",
+    "reactflow": "^11.8.3",
+    "redux-persist": "^6.0.0",
+    "typescript": "^4.9.5",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" && prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "validate": "npm run lint && npm run format:check && npm run test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:react-hooks/recommended",
+      "react-app/jest"
+    ],
+    "plugins": [
+      "react",
+      "tsdoc",
+      "jsdoc",
+      "react-hooks"
+    ],
+    "rules": {
+      "tsdoc/syntax": "warn",
+      "jsdoc/require-jsdoc": [
+        "warn",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true,
+            "ArrowFunctionExpression": true,
+            "FunctionExpression": true
+          },
+          "contexts": [
+            "TSMethodSignature",
+            "TSFunctionType",
+            "TSCallSignatureDeclaration"
+          ]
+        }
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --max-warnings=0  --ext .ts,.tsx,.js,.jsx",
+      "eslint --max-warnings=0  --ext .ts,.tsx,.js,.jsx -f codeframe",
+      "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/lodash": "^4.14.200",
+    "@types/pako": "^2.0.3",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/uuid": "^9.0.3",
+    "autoprefixer": "^10.4.16",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "eslint-plugin-jsdoc": "^46.8.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.6"
+  }
+}
