@@ -10,8 +10,6 @@ import {
   getApiDocumentation,
   getFlowData,
   getTrafficDetails,
-  getApiOwners,
-  getRecordedIdsList,
 } from './api/getServices';
 import {
   convertTrafficDataToCollections,
@@ -36,7 +34,7 @@ const App = () => {
    */
   const fetchApiDocumentation = useCallback(async () => {
     const result = await getApiDocumentation('');
-    //result && setItem('apiDocumentation', JSON.stringify(result));
+    result && setItem('apiDocumentation', JSON.stringify(result));
   }, [setItem]);
 
   /**
@@ -47,8 +45,8 @@ const App = () => {
     if (result) {
       const collections = convertTrafficDataToCollections(result);
       const requestData = generateLatestApiSamples(result);
-      //dispatch(setLatestRequestData(requestData));
-      //dispatch(setCollections(collections));
+      dispatch(setLatestRequestData(requestData));
+      dispatch(setCollections(collections));
     }
   }, [dispatch]);
 
@@ -57,32 +55,17 @@ const App = () => {
    */
   const fetchFlows = useCallback(async () => {
     const result = await getFlowData();
-    //result && dispatch(updateAllFlows(result));
+    result && dispatch(updateAllFlows(result));
   }, [dispatch]);
 
-
-  const fetchRecordedIdsList = useCallback(async () => {
-    const result = await getRecordedIdsList();
-    //result && dispatch(updateAllFlows(result));
-  }, [dispatch]);
-
-  
-  const fetchApiOwners = useCallback(async () => {
-    const result = await getApiOwners();
-    //result && dispatch(updateAllFlows(result));
-  }, [dispatch]);
 
   useEffect(() => {
     if (isAuthenticated) {
-      while(true){
-        fetchApiOwners();
-        fetchRecordedIdsList();
-        fetchCollections();
-        fetchFlows();
-        fetchApiDocumentation();
-      }
+      fetchCollections();
+      fetchFlows();
+      fetchApiDocumentation();
     }
-  }, [fetchApiDocumentation, fetchApiOwners, fetchCollections, fetchFlows, fetchRecordedIdsList, isAuthenticated]);
+  }, [fetchApiDocumentation, fetchCollections, fetchFlows, isAuthenticated]);
 
   useEffect(() => {
     removeItem('newFlow');
